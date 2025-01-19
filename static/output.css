@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    /* margin: 20px; */
+    background-color: #f9f9f9; /* Subtle background color */
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%; /* Adjusted width */
+    margin: 20px auto; /* Center the table */
+    background-color: #fff; /* White background for the table */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow from rounded corners */
+}
+
+th, td {
+    text-align: left;
+    border: 1px solid #ddd;
+    padding: 12px; /* Increased padding for better spacing */
+    font-size: 14px; /* Adjusted font size */
+}
+
+th {
+    background-color: #4CAF50; /* Green background for header */
+    color: white; /* White text for contrast */
+    font-weight: bolder; /* Bold text */
+    text-align: center; /* Center align header text */
+    width: 150px; /* Fixed width for header cells */
+}
+
+td {
+    text-align: center; /* Center align table cells */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row color */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+    cursor: pointer; /* Add pointer cursor on hover */
+}
+
+tr:first-child {
+    background-color: #4CAF50;
+    color:white /* Green background for the first row */
+}

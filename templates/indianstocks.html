@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    /* margin: 20px; */
+    background-color: #f9f9f9; /* Subtle background color */
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%; /* Adjusted width */
+    margin: 20px auto; /* Center the table */
+    background-color: #fff; /* White background for the table */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow from rounded corners */
+}
+
+th, td {
+    text-align: left;
+    border: 1px solid #ddd;
+    padding: 12px; /* Increased padding for better spacing */
+    font-size: 14px; /* Adjusted font size */
+}
+
+th {
+    background-color: #4CAF50; /* Green background for header */
+    color: white; /* White text for contrast */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center align header text */
+    width: 150px; /* Fixed width for header cells */
+}
+
+td {
+    text-align: center; /* Center align table cells */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row color */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+    cursor: pointer; /* Add pointer cursor on hover */
+}
+
+</style>
+</head>
+<body>
+    <h1>Stock List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.ticker }}</td>
+                <td>{{ stock.name }}</td>
+                <!-- <td> <button><a href=""> </a></button></td> -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>
+
+{% endblock %}

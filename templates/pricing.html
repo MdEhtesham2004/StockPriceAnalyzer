@@ -1,0 +1,129 @@
+{% extends "index.html" %}
+
+{% block content %}
+<html>
+<head>
+    <title>Stock Pricing</title>
+    
+    <style>
+        .pricing-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .EnterStock, .showPrice {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .EnterStock h1, .showPrice h1 {
+            margin-bottom: 20px;
+        }
+        .EnterStock form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .EnterStock label, .EnterStock input, .EnterStock button {
+            margin: 10px 0;
+        }
+        .showPrice p {
+            height: 30px;
+            line-height: 30px;
+            margin: 35px 0;
+            padding:35px 0 ;
+        }
+        @media (max-width: 600px) {
+            .showPrice P {
+                margin: 70px 0; /* Increased margin for mobile screens */
+                padding: 70px 0;
+            }
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px 30px;
+            background-color: #28a745; /* Green background for the container */
+            color: #ffffff; /* White text color */
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        h1 {
+            color: #ffffff; /* White heading color */
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+        .highlight {
+            color: #fdd835; /* Highlight text in yellow */
+            font-weight: bold;
+        }
+        .container:hover {
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.01);
+        }
+        </style>
+</head>
+<body>
+    <div class="pricing-page">
+        <div class="container">
+            <h1>Stock Price Change Analyzer</h1>
+            <p>Easily track stock trends with our <span class="highlight">Stock Price Change Analyzer</span>. Simply enter the name of a stock, and our tool will instantly calculate and display the difference in closing prices between the last two trading days.</p>
+            
+            <p>This feature helps you:</p>
+            <ul>
+                <li><strong>Stay Updated:</strong> Get real-time insights into stock price movements.</li>
+                <li><strong>Make Informed Decisions:</strong> Understand short-term trends to plan your investments better.</li>
+                <li><strong>User-Friendly:</strong> Input the stock name, and let the system handle the rest!</li>
+            </ul>
+            
+            <p>Keep a pulse on the market with just a few clicks. Perfect for investors, traders, and anyone curious about stock performance.</p>
+        </div>
+        <div class="EnterStock">
+            <h1>Enter Stock Name</h1>
+        <form action="{{ url_for('get_stock_price') }}" method="post">
+            <label for="stock_name">Enter Stock Name:</label>
+            <input type="text" id="stock_name" name="stock_name" required>
+         
+            <label for="company_name">Enter Company Name:</label>
+            <input type="text" id="company_name" name="company_name" required>
+            
+        
+            <button type="submit">See Pricing</button>
+        </form>
+    </div>
+    {% if show_price %}
+    <div class="showPrice">
+        <h1>Stock Details:</h1> <br>
+        {% for stock in stocks %}
+        <p>{{ stock  }}</p><br>
+        {% endfor %}
+    </div>
+    {% endif %}
+    </div>
+</body>
+</html>
+{% endblock %}
+
+
