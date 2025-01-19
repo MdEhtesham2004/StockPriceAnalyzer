@@ -8,7 +8,7 @@ load_dotenv()
 
 # STOCK_NAME = "TSLA"
 STOCK_NAME = None
-COMPANY_NAME = 'apple'
+COMPANY_NAME = None
 STOCK_API_KEY = os.getenv("STOCK_API_KEY")
 STOCK_ENDPOINT = os.getenv("STOCK_ENDPOINT")
 NEWS_ENDPOINT = os.getenv("NEWS_ENDPOINT")
